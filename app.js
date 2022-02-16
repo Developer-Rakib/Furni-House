@@ -3,21 +3,18 @@ const daw = 68;
 const loungo = 90;
 
 
-function  chairFunction(sum, id, price) {
-    let chirFeild = document.querySelector(id+"-input");
+function  clickFunction(sum, id, price) {
+    let feild = document.querySelector(id+"-input");
     
     if (sum == true) {
-        chirFeild.value ++;
-    } else if(chirFeild.value > 0){
-        chirFeild.value --;
+        feild.value ++;
+    } else if(feild.value > 0){
+        feild.value --;
 
     }
-    document.querySelector(id+"-price").innerText = chirFeild.value * price;
+    document.querySelector(id+"-price").innerText = feild.value * price;
     calcalut()
 
-}
-function percentage(percent, total) {
-    return ((percent/ 100) * total).toFixed(2)
 }
 
 function calcalut(){
@@ -27,7 +24,7 @@ function calcalut(){
     let subTotal = document.querySelector("#sub-total")
     subTotal.innerText = parseInt(chairTotal) + parseInt(dawTotal) + parseInt(loungoTotal);
     let subTotalConvert = parseInt(subTotal.innerText);
-    let tax = percentage(5, subTotalConvert);
+    let tax = ((5 / 100) * subTotalConvert).toFixed(2);
     document.querySelector("#tax").innerText = tax;
     document.querySelector("#total").innerText = subTotalConvert + parseInt(tax);
      
@@ -36,12 +33,12 @@ function calcalut(){
 // chair 
 document.querySelector("#chair-plus").addEventListener("click", function  (e) {
     let sum = true;
-    chairFunction(sum, "#chair", chair)
+    clickFunction(sum, "#chair", chair)
 })
 
 document.querySelector("#chair-minus").addEventListener("click", function  (e) {
     let sum = false;
-    chairFunction(sum, "#chair", chair)
+    clickFunction(sum, "#chair", chair)
 })
 
 
@@ -49,21 +46,21 @@ document.querySelector("#chair-minus").addEventListener("click", function  (e) {
 // daw 
 document.querySelector("#daw-plus").addEventListener("click", function  (e) {
     let sum = true;
-    chairFunction(sum, "#daw", daw)
+    clickFunction(sum, "#daw", daw)
 })
 
 document.querySelector("#daw-minus").addEventListener("click", function  (e) {
     let sum = false;
-    chairFunction(sum, "#daw", daw)
+    clickFunction(sum, "#daw", daw)
 })
 
 // loungo
 document.querySelector("#loungo-plus").addEventListener("click", function  (e) {
     let sum = true;
-    chairFunction(sum, "#loungo", loungo)
+    clickFunction(sum, "#loungo", loungo)
 })
 
 document.querySelector("#loungo-minus").addEventListener("click", function  (e) {
     let sum = false;
-    chairFunction(sum, "#loungo", loungo)
+    clickFunction(sum, "#loungo", loungo)
 })
